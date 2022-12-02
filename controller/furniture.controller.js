@@ -23,7 +23,7 @@ class FurnitureController {
 
     async updateFurniture(req, res){
         const {id, name, price, manufdate} = req.body
-        const furniture = await db.query(`UPDATE person SET name= $1, price=$2, manufdate=$3 WHERE id = $4 RETURNING *`, [name, price, manufdate, id])
+        const furniture = await db.query(`UPDATE furniture SET name= $1, price=$2, manufdate=$3 WHERE id = $4 RETURNING *`, [name, price, manufdate, id])
         res.json(furniture.rows[0])
 
     }
